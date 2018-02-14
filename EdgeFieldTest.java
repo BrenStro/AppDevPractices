@@ -1,6 +1,5 @@
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
 public class EdgeFieldTest {
@@ -16,22 +15,22 @@ public class EdgeFieldTest {
        testGetNumFigure();
        testGetName();
        testGetTableID();
-       //testSetTableID();
-       //testSetTableBound();
        testGetFieldBound();
-       //testSetFieldBound();
        testGetDisallowNull();
-       //testSetDisallowNull();
        testGetIsPrimaryKey();
-       //testSetIsPrimaryKey();
        testGetDefaultValue();
-       //testSetDefaultValue();
        testGetVarcharValue();
-       //testSetVarcharValue();
        testGetDataType();
-       //testSetDataType();
        testGetStrDataType();
        testToString();
+//       testSetTableID();
+//       testSetTableBound();
+//       testSetFieldBound();
+//       testSetDisallowNull();
+//       testSetIsPrimaryKey();
+//       testSetDefaultValue();
+//       testSetVarcharValue();
+//       testSetDataType();
     }
 
     //ACCESSORS
@@ -78,7 +77,7 @@ public class EdgeFieldTest {
 
     @Test
     public void testGetVarcharValue() {
-        assertEquals("varcharValue was initialized to VARCHAR_DEFAULT_LENGTH, so it should be VARCHAR_DEFAULT_LENGTH", EdgeField.VARCHAR_DEFAULT_LENGTH, testObj.getVarcharValue());
+        assertEquals("varcharValue was initialized to VARCHAR_DEFAULT_LENGTH, so it should be VARCHAR_DEFAULT_LENGTH", testObj.VARCHAR_DEFAULT_LENGTH, testObj.getVarcharValue());
     }
 
     @Test
@@ -88,43 +87,63 @@ public class EdgeFieldTest {
 
     @Test
     public void testGetStrDataType() {
+        assertEquals("strDataType was initialized to {\"Varchar\", \"Boolean\", \"Integer\", \"Double\"}, so it should be {\"Varchar\", \"Boolean\", \"Integer\", \"Double\"}", new String[] {"Varchar", "Boolean", "Integer", "Double"}, testObj.getStrDataType());
+    }
+
+    //TO STRING
+
+    @Test
+    public void testToString() {
+        assertEquals("toString should return a string with all of the properties", "1|testName|0|0|0|0|1|false|false|", testObj.toString());
     }
 
     //MUTATORS
 
     @Test
     public void testSetTableID() {
+        testObj.setTableID(1);
+        assertEquals("tableID was set to 1, so it should be 1", 1, testObj.getTableID());
     }
 
     @Test
     public void testSetTableBound() {
+        testObj.setTableBound(1);
+        assertEquals("tableBound was set to 1, so it should be 1", 1, testObj.getTableBound());
     }
 
     @Test
     public void testSetFieldBound() {
+        testObj.setFieldBound(1);
+        assertEquals("tableBound was set to 1, so it should be 1", 1, testObj.getFieldBound());
     }
 
     @Test
     public void testSetIsPrimaryKey() {
+        testObj.setIsPrimaryKey(true);
+        assertEquals("isPrimaryKey was set to true, so it should be true", true, testObj.getIsPrimaryKey());
     }
 
     @Test
     public void testSetDisallowNull() {
+        testObj.setDisallowNull(true);
+        assertEquals("disallowNull was set to true, so it should be true", true, testObj.getDisallowNull());
     }
 
     @Test
     public void testSetDefaultValue() {
+        testObj.setDefaultValue("default");
+        assertEquals("defaultValue was set to 'default', so it should be 'default'", "default", testObj.getDefaultValue());
     }
 
     @Test
     public void testSetVarcharValue() {
+        testObj.setVarcharValue(2);
+        assertEquals("varcharValue was set to 2, so it should be 2", 2, testObj.getVarcharValue());
     }
 
     @Test
     public void testSetDataType() {
-    }
-
-    @Test
-    public void testToString() {
+        testObj.setDataType(1);
+        assertEquals("dataType was set to 1, so it should be 1", 1, testObj.getDataType());
     }
 }
