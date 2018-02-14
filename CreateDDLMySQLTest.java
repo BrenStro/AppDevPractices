@@ -27,7 +27,7 @@ public class CreateDDLMySQLTest {
     @Test
     public void testGenerateDatabaseName() {
         String temp = testObj.generateDatabaseName();
-        assertEquals("databaseName returns " + temp + ", so it should be " + temp, "OurDB", testObj.getDatabaseName());
+        assertEquals("databaseName returns " + temp + ", so it should be " + temp, "TestDB", testObj.getDatabaseName());
     }
 
     @Test
