@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
  * @author Brendon Strowe
  * @author Brett Phillips
  * @author Steven Ricci
+ * @author Louie Trapani
  *
  */
 public class CreateDDLMySQLTest {

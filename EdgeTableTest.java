@@ -7,11 +7,12 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Test class that will test the methods in the EdgeField class
+ * Test class that will test the methods in the EdgeTable class
  *
  * @author Brendon Strowe
  * @author Brett Phillips
  * @author Steven Ricci
+ * @author Louie Trapani
  *
  */
 public class EdgeTableTest {
