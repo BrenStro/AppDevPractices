@@ -2,15 +2,33 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test class that will test the methods in the EdgeField class
+ *
+ * @author Brendon Strowe
+ * @author Brett Phillips
+ * @author Steven Ricci
+ *
+ */
 public class EdgeFieldTest {
+    //Declare the test object
     EdgeField testObj;
 
+    /**
+     * Set up the test object before running each test
+     *
+     * @throws Exception
+     */
     @Before
     public void setUp() throws Exception {
         testObj = new EdgeField("1|testName");
         runner();
     }
 
+    /**
+     * Method that will call different mutator and
+     * accessor methods
+     */
     public void runner() {
        testGetNumFigure();
        testGetName();
