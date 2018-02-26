@@ -9,6 +9,6 @@ based on preference. After each person completes a test file, we plan to get tog
 us in the habit of code reviews for the future and also help us to understand the test that was written. If we have any
 suggestions or changes for a particular test, before submission, then we can bring that up during this time.
 
-&lt;p&gt;## Commands to compile and run junit
-&lt;p&gt;1. javac -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar \EdgeFieldTest.java
-&lt;p&gt;2. java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar \org.junit.runner.JUnitCore EdgeFieldTest
+&nbsp;&nbsp;&nbsp;&nbsp;## Commands to compile and run junit
+&nbsp;&nbsp;&nbsp;&nbsp;1. javac -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar \EdgeFieldTest.java
+&nbsp;&nbsp;&nbsp;&nbsp;2. java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar \org.junit.runner.JUnitCore EdgeFieldTest
