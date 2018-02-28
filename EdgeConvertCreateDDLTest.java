@@ -22,19 +22,14 @@ public class EdgeConvertCreateDDLTest extends EdgeConvertCreateDDLTestClass {
 
     @Before
     public void setUp() throws Exception {
-        runner();
+        //runner();
     }
 
-    public void runner() {
+    /*public void runner() {
         testInitialize();
         testGetTable();
         testGetField();
-    }
-
-    @Test
-    public void testInitialize() {
-        assertEquals(tbl, testObj.getTable(2));
-    }
+    }*/
 
     @Test
     public void testGetTable() {

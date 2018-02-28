@@ -32,7 +32,7 @@ public class CreateDDLMySQLTest {
 
 		//Declare the test object
 		testObj = new CreateDDLMySQL(ecfp.getEdgeTables(), ecfp.getEdgeFields());
-        //runner();
+        runner();
     }
 
     /**

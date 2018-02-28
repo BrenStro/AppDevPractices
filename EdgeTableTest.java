@@ -24,14 +24,14 @@ public class EdgeTableTest {
     @Before
     public void setUp() throws Exception {
         testObj = new EdgeTable("2|aTestName");
-        runner();
+        //runner();
     }
 
     /**
      * Method that will call different mutator and
      * accessor methods
      */
-    public void runner() {
+    /*public void runner() {
         testGetNumFigure();
         testGetName();
         //testAddRelatedTable();
@@ -44,7 +44,7 @@ public class EdgeTableTest {
         //testMoveFieldDown();
         //testMakeArrays();
         testToString();
-    }
+    }*/
 
     //ACCESSOR METHODS
 
@@ -58,19 +58,26 @@ public class EdgeTableTest {
         assertEquals("name was initialized to aTestName, so it should be aTestName", "aTestName", testObj.getName());
     }
 
-    //@Test
+    @Test
     public void testGetRelatedTablesArray() {
-        //Method is tested in the testAddRelatedTables();
+        testObj.addRelatedTable(1);
+        testObj.makeArrays();
+        assertArrayEquals(new int[]{1}, testObj.getRelatedTablesArray());
     }
 
+    //Test has to be run without testAddRelatedTable() and testMakeArrays()
     //@Test
     public void testGetRelatedFieldsArray() {
-        //Method is tested in the testSetRelatedFields();
+        testObj.addNativeField(1);
+        testObj.makeArrays();
+        assertArrayEquals(new int[]{0}, testObj.getRelatedFieldsArray());
     }
 
-    //@Test
+    @Test
     public void testGetNativeFieldsArray() {
-        //Method is tested in the testAddNativeField();, testMoveFieldDown();, testMoveFieldUp();
+        testObj.addNativeField(5);
+        testObj.makeArrays();
+        assertArrayEquals(new int[]{5}, testObj.getNativeFieldsArray());
     }
 
     //MUTATOR METHODS
@@ -85,7 +92,8 @@ public class EdgeTableTest {
 
     //OTHER METHODS
 
-    @Test
+    //Test has to be run without testMakeArrays() and testGetRelatedFieldsArray()
+    //@Test
     public void testAddRelatedTable() {
         testObj.addRelatedTable(1);
         testObj.makeArrays();
@@ -118,10 +126,16 @@ public class EdgeTableTest {
         assertArrayEquals(new int[]{3, 1, 6}, testObj.getNativeFieldsArray());
     }
 
-    //@Test
+    //Test has to be run without testAddRelatedTable() and testGetRelatedFieldsArray()
+    @Test
     public void testMakeArrays() {
-        //Method is tested in the testAddRelatedTables();, testAddNativeField();, and testSetRelatedFields(),
-        //testMoveFieldUp();, testMoveFieldDown();
+        testObj.addNativeField(1);
+        testObj.addRelatedTable(3);
+        testObj.makeArrays();
+        testObj.setRelatedField(0, 2);
+        assertArrayEquals(new int[]{1}, testObj.getNativeFieldsArray());
+        assertArrayEquals(new int[]{3}, testObj.getRelatedTablesArray());
+        assertArrayEquals(new int[]{2}, testObj.getRelatedFieldsArray());
     }
 
     @Test
