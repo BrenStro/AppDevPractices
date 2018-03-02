@@ -32,15 +32,14 @@ public class CreateDDLMySQLTest {
 
 		//Declare the test object
 		testObj = new CreateDDLMySQL(ecfp.getEdgeTables(), ecfp.getEdgeFields());
-        runner();
+        //runner();
     }
 
     /**
      * Method that will call different mutator and
      * accessor methods
      */
-    /*
-    public void runner() {
+    /*public void runner() {
         testConvertStrBooleanToInt();
         //testGenerateDatabaseName();
         testGetDatabaseName();
@@ -63,7 +62,7 @@ public class CreateDDLMySQLTest {
     @Test
     public void testGetDatabaseName() {
         testObj.generateDatabaseName();
-        assertEquals("databaseName is set as null, so it should be MySQLDB", "MySQLDB", testObj.getDatabaseName());
+        assertEquals("databaseName is set as MySQLDB, so it should be MySQLDB", "MySQLDB", testObj.getDatabaseName());
     }
 
     @Test
@@ -71,7 +70,7 @@ public class CreateDDLMySQLTest {
         assertEquals("productName returns MySQL, so it should be MySQL", "MySQL", testObj.getProductName());
     }
 
-    @Test
+    //@Test
     public void testGetSQLString() {
 		String sqlString = testObj.getSQLString();
 		System.out.println(sqlString);
