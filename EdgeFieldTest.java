@@ -23,14 +23,14 @@ public class EdgeFieldTest {
     @Before
     public void setUp() throws Exception {
         testObj = new EdgeField("1|testName");
-        runner();
+        //runner();
     }
 
     /**
      * Method that will call different mutator and
      * accessor methods
      */
-    public void runner() {
+    /*public void runner() {
        testGetNumFigure();
        testGetName();
        testGetTableID();
@@ -50,7 +50,7 @@ public class EdgeFieldTest {
 //       testSetDefaultValue();
 //       testSetVarcharValue();
 //       testSetDataType();
-    }
+    }*/
 
     //ACCESSORS
 
