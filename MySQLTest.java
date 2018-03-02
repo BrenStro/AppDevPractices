@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.util.ArrayList;
 
 /**
- * Test class that will test the methods in the CreateDDLMySQL class
+ * Test class that will test the output of the Application.
  *
  * @author Brendon Strowe
  * @author Brett Phillips
