@@ -14,7 +14,7 @@ We devised a plan for testing of the output of the application as well as four s
 
 #### MySQLTest
 This test checks for a valid output from the Application. If it succeeds, a success message will be output to the console. If a failure occurs, output will explain where in the test it failed. \
-Run the below to compile and run this test:
+Run the below to compile and run this test. Note: this particular test runs the `mysql` and `mysqlcheck` commands as the root MySQL user as part of the test. When prompted for a password, please enter the password for the root user on your local MySQL instance.
 ```
 javac MySQLTest.java
 java MySQLTest
