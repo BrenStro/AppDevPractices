@@ -55,9 +55,14 @@ public class MySQLTest {
 		// Check if it passes with an `OK` message or an `ERROR` message from
 		//   the command output.
 		try {
-			Process process = Runtime.getRuntime().exec("mysqlcheck -u myusername -p -c output.sql");
-			process.waitFor();
-			BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			Process mysqlProcess = Runtime.getRuntime().exec("mysql -u root -p < " + sqlFile.getName());
+			mysqlProcess.waitFor();
+			System.out.println("MYSQL RAN");
+
+			Process mysqlcheckProcess = Runtime.getRuntime().exec("mysqlcheck -u root -p -c CoursesDB");
+			mysqlcheckProcess.waitFor();
+
+			BufferedReader br = new BufferedReader(new InputStreamReader(mysqlcheckProcess.getInputStream()));
 
 			String line = br.readLine();
 
