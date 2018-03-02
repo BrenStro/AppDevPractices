@@ -25,7 +25,7 @@ public class EdgeConvertFileParser {
    public static final String EDGE_ID = "EDGE Diagram File"; //first line of .edg files should be this
    public static final String SAVE_ID = "EdgeConvert Save File"; //first line of save files should be this
    public static final String DELIM = "|";
-   
+
    public EdgeConvertFileParser(File constructorFile) {
       numFigure = 0;
       numConnector = 0;
@@ -54,7 +54,7 @@ public class EdgeConvertFileParser {
                   JOptionPane.showMessageDialog(null, "The Edge Diagrammer file\n" + parseFile + "\ncontains relations.  Please resolve them and try again.");
                   EdgeConvertGUI.setReadSuccess(false);
                   break;
-               } 
+               }
                if (style.startsWith("Entity")) {
                   isEntity = true;
                }
@@ -82,7 +82,7 @@ public class EdgeConvertFileParser {
                      isUnderlined = true;
                   }
                } while (!currentLine.equals("}")); // this is the end of a Figure entry
-               
+
                if (isEntity) { //create a new EdgeTable object and add it to the alTables ArrayList
                   if (isTableDup(text)) {
                      JOptionPane.showMessageDialog(null, "There are multiple tables called " + text + " in this diagram.\nPlease rename all but one of them and try again.");
@@ -122,12 +122,12 @@ public class EdgeConvertFileParser {
             do { //advance to end of record
                currentLine = br.readLine().trim();
             } while (!currentLine.equals("}")); // this is the end of a Connector entry
-            
+
             alConnectors.add(new EdgeConnector(numConnector + DELIM + endPoint1 + DELIM + endPoint2 + DELIM + endStyle1 + DELIM + endStyle2));
          } // if("Connector")
       } // while()
    } // parseEdgeFile()
-   
+
    private void resolveConnectors() { //Identify nature of Connector endpoints
       int endPoint1, endPoint2;
       int fieldIndex = 0, table1Index = 0, table2Index = 0;
@@ -155,7 +155,7 @@ public class EdgeConvertFileParser {
                table2Index = tIndex; //identify which element of the tables array that endPoint2 was found in
             }
          }
-         
+
          if (connectors[cIndex].getIsEP1Field() && connectors[cIndex].getIsEP2Field()) { //both endpoints are fields, implies lack of normalization
             JOptionPane.showMessageDialog(null, "The Edge Diagrammer file\n" + parseFile + "\ncontains composite attributes. Please resolve them and try again.");
             EdgeConvertGUI.setReadSuccess(false); //this tells GUI not to populate JList components
@@ -174,7 +174,7 @@ public class EdgeConvertFileParser {
                continue; //next Connector
             }
          }
-         
+
          if (fieldIndex >=0 && fields[fieldIndex].getTableID() == 0) { //field has not been assigned to a table yet
             if (connectors[cIndex].getIsEP1Table()) { //endpoint1 is the table
                tables[table1Index].addNativeField(fields[fieldIndex].getNumFigure()); //add to the appropriate table's field list
@@ -190,7 +190,7 @@ public class EdgeConvertFileParser {
          }
       } // connectors for() loop
    } // resolveConnectors()
-   
+
    public void parseSaveFile() throws IOException { //this method is fucked
       StringTokenizer stTables, stNatFields, stRelFields, stNatRelFields, stField;
       EdgeTable tempTable;
@@ -203,14 +203,14 @@ public class EdgeConvertFileParser {
          currentLine = br.readLine(); //this should be "TableName"
          tableName = currentLine.substring(currentLine.indexOf(" ") + 1);
          tempTable = new EdgeTable(numFigure + DELIM + tableName);
-         
+
          currentLine = br.readLine(); //this should be the NativeFields list
          stNatFields = new StringTokenizer(currentLine.substring(currentLine.indexOf(" ") + 1), DELIM);
          numFields = stNatFields.countTokens();
          for (int i = 0; i < numFields; i++) {
             tempTable.addNativeField(Integer.parseInt(stNatFields.nextToken()));
          }
-         
+
          currentLine = br.readLine(); //this should be the RelatedTables list
          stTables = new StringTokenizer(currentLine.substring(currentLine.indexOf(" ") + 1), DELIM);
          numTables = stTables.countTokens();
@@ -218,7 +218,7 @@ public class EdgeConvertFileParser {
             tempTable.addRelatedTable(Integer.parseInt(stTables.nextToken()));
          }
          tempTable.makeArrays();
-         
+
          currentLine = br.readLine(); //this should be the RelatedFields list
          stRelFields = new StringTokenizer(currentLine.substring(currentLine.indexOf(" ") + 1), DELIM);
          numFields = stRelFields.countTokens();
@@ -254,6 +254,9 @@ public class EdgeConvertFileParser {
    private void makeArrays() { //convert ArrayList objects into arrays of the appropriate Class type
       if (alTables != null) {
          tables = (EdgeTable[])alTables.toArray(new EdgeTable[alTables.size()]);
+		 for (int i = 0; i < tables.length; i++) {
+			 tables[i].makeArrays();
+		 }
       }
       if (alFields != null) {
          fields = (EdgeField[])alFields.toArray(new EdgeField[alFields.size()]);
@@ -262,7 +265,7 @@ public class EdgeConvertFileParser {
          connectors = (EdgeConnector[])alConnectors.toArray(new EdgeConnector[alConnectors.size()]);
       }
    }
-   
+
    private boolean isTableDup(String testTableName) {
       for (int i = 0; i < alTables.size(); i++) {
          EdgeTable tempTable = (EdgeTable)alTables.get(i);
@@ -272,15 +275,15 @@ public class EdgeConvertFileParser {
       }
       return false;
    }
-   
+
    public EdgeTable[] getEdgeTables() {
       return tables;
    }
-   
+
    public EdgeField[] getEdgeFields() {
       return fields;
    }
-   
+
    public void openFile(File inputFile) {
       try {
          fr = new FileReader(inputFile);
