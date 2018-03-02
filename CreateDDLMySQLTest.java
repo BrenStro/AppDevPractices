@@ -39,7 +39,8 @@ public class CreateDDLMySQLTest {
      * Method that will call different mutator and
      * accessor methods
      */
-    /*public void runner() {
+    /*
+    public void runner() {
         testConvertStrBooleanToInt();
         //testGenerateDatabaseName();
         testGetDatabaseName();
@@ -70,7 +71,7 @@ public class CreateDDLMySQLTest {
         assertEquals("productName returns MySQL, so it should be MySQL", "MySQL", testObj.getProductName());
     }
 
-    //@Test
+    @Test
     public void testGetSQLString() {
 		String sqlString = testObj.getSQLString();
 		System.out.println(sqlString);
