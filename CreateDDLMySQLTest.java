@@ -39,6 +39,7 @@ public class CreateDDLMySQLTest {
      * Method that will call different mutator and
      * accessor methods
      */
+    /*
     public void runner() {
         testConvertStrBooleanToInt();
         //testGenerateDatabaseName();
@@ -46,22 +47,23 @@ public class CreateDDLMySQLTest {
         testGetProductName();
         testGetSQLString();
     }
+	*/
 
     @Test
     public void testConvertStrBooleanToInt() {
         assertEquals("input is true, so it should be true", 1, testObj.convertStrBooleanToInt("true"));
     }
 
-    @Ignore
+    @Test
     public void testGenerateDatabaseName() {
         String temp = testObj.generateDatabaseName();
-        assertEquals("databaseName returns " + temp + ", so it should be " + temp, "TestDB", testObj.getDatabaseName());
+        assertEquals("databaseName returns " + temp + ", so it should be " + temp, "MySQLDB", testObj.getDatabaseName());
     }
 
     @Test
     public void testGetDatabaseName() {
         testObj.generateDatabaseName();
-        assertEquals("databaseName is set as null, so it should be null", null, testObj.getDatabaseName());
+        assertEquals("databaseName is set as null, so it should be MySQLDB", "MySQLDB", testObj.getDatabaseName());
     }
 
     @Test
