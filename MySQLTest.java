@@ -1,8 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.FileReader;
-import java.io.BufferedReader;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -58,6 +54,23 @@ public class MySQLTest {
 		// Run `mysqlcheck -u myusername -p -c [output SQL file]`
 		// Check if it passes with an `OK` message or an `ERROR` message from
 		//   the command output.
+		try {
+			Process process = Runtime.getRuntime().exec("mysqlcheck -u myusername -p -c output.sql");
+			process.waitFor();
+			BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+			String line = br.readLine();
+
+			while (line != null) {
+				System.out.println(line);
+				line = br.readLine();
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
 		// If `mysqlcheck` passes with `OK` messages for all tables, parse and
 		//   loop through each table creted to see if it matches the list of
