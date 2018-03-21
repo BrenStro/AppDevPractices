@@ -51,3 +51,7 @@ Run the below to compile and run this test:
 javac -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar \CreateDDLMySQLTest.java
 java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar \org.junit.runner.JUnitCore CreateDDLMySQLTest
 ```
+
+## SDLC
+Our group plans on doing a hybrid SDLC utilizing parts of both the Waterfall Model and the Scrum Model. We chose a hybrid for several reasons. We have decided to use the Waterfall Model for its clearly defined and schedules stages (requirements->analysis->implementation->maintenance) and the ability for each member in our group to verbally sign off on each stage since we have a strict deadline to get the project done. By not revisiting past stages, we will be able to remain on track to meet our software goal. In addition, we have decided to pair this model with the Scrum Model. By using the Scrum Model, we plan on developing a product backlog with items that are prioritized and need to be completed. Furthermore, since this is a maintenance project, we have decided to abandon the sprint portion of Scrum. With that being said, we will still have daily stand ups, which will allow close cooperation between team members.
+```
