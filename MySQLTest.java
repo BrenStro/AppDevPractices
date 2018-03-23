@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class MySQLTest {
 
+	private BufferedReader br;
 
 	public static final String EDGE_FILE_ID = "EDGE Diagram File"; //first line of .edg files should be this
 
@@ -36,6 +37,9 @@ public class MySQLTest {
 		File[] files = currentDirectory.listFiles();
 		boolean fileExists = false;
 		File sqlFile = new File(".");
+		String databaseName = "";
+
+
 		for (File file : files) {
 			if (file.getName().indexOf(".sql") > -1) {
                 fileExists = true;
@@ -45,30 +49,73 @@ public class MySQLTest {
         }
 		if (!fileExists) {
 			// Test fails
-			System.out.println("No SQL file exists in the running directory.");
+			System.out.println("TEST FAILED: No output SQL file exists in the running directory.");
 			System.exit(0);
 		} else {
-			System.out.println("Found file " + sqlFile.getName());
+			System.out.println("Found output SQL file: " + sqlFile.getName());
+			try {
+				br = new BufferedReader(new FileReader(sqlFile));
+			} catch(FileNotFoundException e) {
+
+			}
+			String currentLine = "";
+			try {
+				while ((currentLine = br.readLine()) != null) {
+					currentLine = currentLine.trim();
+					if (currentLine.startsWith("CREATE TABLE ")) { //this has the name of the Database
+						System.out.println(currentLine);
+						databaseName = currentLine.substring(currentLine.indexOf("CREATE TABLE"), currentLine.indexOf("(") - 1); //get the name of the database
+						break;
+					}
+				}
+				if (databaseName.equals("")) {
+					System.out.println("TEST FAILED: No database defined in Output file.");
+					System.exit(0);
+				}
+			} catch(IOException e) {
+
+			}
 		}
+
+		// Get the table names out of the `courses.edg` file.
+		openFile(edgeFile);
 
 		// Run `mysqlcheck -u myusername -p -c [output SQL file]`
 		// Check if it passes with an `OK` message or an `ERROR` message from
 		//   the command output.
 		try {
+			BufferedReader br;
+			System.out.println("Running `mysql` command to attempt to create database from output SQL file…\n");
 			Process mysqlProcess = Runtime.getRuntime().exec("mysql -u root -p < " + sqlFile.getName());
 			mysqlProcess.waitFor();
-			System.out.println("MYSQL RAN");
 
 			Process mysqlcheckProcess = Runtime.getRuntime().exec("mysqlcheck -u root -p -c CoursesDB");
+			br = new BufferedReader(new InputStreamReader(mysqlcheckProcess.getInputStream()));
+			System.out.println("`mysqltest` requires a password to login to the root user account.");
 			mysqlcheckProcess.waitFor();
+			System.out.println("Running `mysqltest`.");
 
-			BufferedReader br = new BufferedReader(new InputStreamReader(mysqlcheckProcess.getInputStream()));
 
 			String line = br.readLine();
-
+			System.out.println("");
+			// Check if output matches expected
 			while (line != null) {
 				System.out.println(line);
 				line = br.readLine();
+				if (line.toUpperCase().indexOf("ERROR") != -1) {
+					System.out.println("TEST FAILED: Error in creating database from Output file.");
+					System.exit(0);
+				} else {
+					String tableNameSql = line.substring(line.indexOf(databaseName) + 1, line.indexOf(" "));
+					System.out.println(tableNameSql);
+					boolean match = false;
+					for (String tableName : tableNames) {
+						if (tableName.toUpperCase().equals(tableNameSql.toUpperCase())) {
+							match = true;
+							break;
+						}
+					}
+				}
 			}
 
 		} catch (IOException e) {
@@ -77,14 +124,7 @@ public class MySQLTest {
 			e.printStackTrace();
 		}
 
-		// If `mysqlcheck` passes with `OK` messages for all tables, parse and
-		//   loop through each table creted to see if it matches the list of
-		//   tables specified in the `courses.edg` file.
-		openFile(edgeFile);
 
-		for (String tableName : tableNames) {
-			System.out.println(tableName);
-		}
 	}
 
 	public void openFile(File inputFile) {
