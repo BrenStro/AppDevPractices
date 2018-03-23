@@ -53,9 +53,9 @@ java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar \org.junit.runner.JUnitC
 ```
 
 ## SDLC
-Our group plans on doing a hybrid SDLC utilizing parts of both the Waterfall Model and the Scrum Model. We chose a hybrid for several reasons. We have decided to use the Waterfall Model for its clearly defined and scheduled stages (requirements->analysis->implementation->maintenance) as well as the ability for each member in our group to verbally sign off on each stage since we have a strict deadline in terms of a project end date. By not revisiting past stages, we will be able to remain on track which will allow us to ultimately meet our software goal.
+Our group plans on doing a hybrid SDLC utilizing parts of both the Waterfall Model and the Scrum Model. We have decided to incorporate aspects of the the Waterfall Model for its clearly defined and scheduled stages (requirements->analysis->implementation->maintenance) as well as the ability for each member in our group to verbally sign off on each stage. Since we have a strict deadline in terms of a project end date—as per myCourses Dropboxes—we will not be revisiting past stages unless absolutely necessary. Waterfall will keep us on track to ultimately meet our software goal. We have dedicated Brendon Strowe as Product Owner. He will be responsible for closely analyzing and understanding the requirements of the project as defined in the course `book.pdf`.
 
-In addition, we have decided to pair this model with portions of the Scrum Model. By using the Scrum Model, we plan on developing a product backlog with items that need to be completed. From that backlog, we will prioritize each item based on which milestone it belongs to and when it is due. Furthermore, since this is a maintenance project and due to time constraints, we have decided to abandon the sprint portion of the Scrum model. With that being said, we will still have daily stand ups to allow team members to brief one another and keep close cooperation between the team.
+In addition, we have decided to pair Waterfall with portions of the Scrum Model. By using the Scrum Model, we plan on developing a product backlog with items that need to be completed. From that backlog, we will prioritize each item based on which milestone it belongs to and when it is due. Furthermore, since this is a maintenance project and due to time constraints, we have decided to abandon the sprint portion of the Scrum model. With that being said, we will still have stand up meetings to allow team members to brief one another and keep close cooperation between the team. After meetings, pair and group programming will be implemented to ensure thorough debugging and group-understanding of the inherited broken project.
 
 We feel this hybrid approach should allow us to be successful in completing this project correctly and on time. Below, we have provided a product backlog that is prioritized by milestone due date. We have defined each item so that they are able to be accomplished by a single team member, however if the task is larger, multiple team members will be assigned to it (e.g. refactor the codebase).
 
@@ -72,7 +72,7 @@ We feel this hybrid approach should allow us to be successful in completing this
 10. Update the README to explain how our code solves the goals of the project - M5
 
 ## Flowchart
-#### Due to our flowchart being so large, and Lucidchart limiting the number of objects we can use, we had to break this up into three separate files.
+#### Due to our flowchart being so large, and Lucidchart limiting the number of objects we can use, we had to break this up into three separate files. See flowchart directory in this root directory for the flowchart files.
 ### FlowchartOne
 This flowchart shows the actual opening of the edge and previously saved file. User can view tables, fields and manipulate the relationships and contents of each table. This flowchart also shows creating a DDL file.
 
