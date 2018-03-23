@@ -1,19 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
+import javax.swing.*;   
 import javax.swing.event.*;
 import java.io.*;
 import java.util.*;
-
-/**
- * Test class that will test the methods in the CreateDDLMySQL class
- *
- * @author Brendon Strowe
- * @author Brett Phillips
- * @author Steven Ricci
- * @author Louie Trapani
- *
- */
 
 public class CreateDDLMySQL extends EdgeConvertCreateDDL {
 
@@ -26,11 +16,11 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
       super(inputTables, inputFields);
       sb = new StringBuffer();
    } //CreateDDLMySQL(EdgeTable[], EdgeField[])
-
+   
    public CreateDDLMySQL() { //default constructor with empty arg list for to allow output dir to be set before there are table and field objects
-
+      
    }
-
+   
    public void createDDL() {
       EdgeConvertGUI.setReadSuccess(true);
       databaseName = generateDatabaseName();
@@ -117,7 +107,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
          return 0;
       }
    }
-
+   
    public String generateDatabaseName() { //prompts user for database name
       String dbNameDefault = "MySQLDB";
       //String databaseName = "";
@@ -141,11 +131,11 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
       } while (databaseName.equals(""));
       return databaseName;
    }
-
+   
    public String getDatabaseName() {
       return databaseName;
    }
-
+   
    public String getProductName() {
       return "MySQL";
    }
@@ -154,5 +144,5 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
       createDDL();
       return sb.toString();
    }
-
+   
 }//EdgeConvertCreateDDL
