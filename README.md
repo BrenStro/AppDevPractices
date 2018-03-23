@@ -75,7 +75,9 @@ We feel this hybrid approach should allow us to be successful in completing this
 #### Due to our flowchart being so large, and Lucidchart limiting the number of objects we can use, we had to break this up into three separate files.
 ### FlowchartOne
 This flowchart shows the actual opening of the edge and previously saved file. User can view tables, fields and manipulate the relationships and contents of each table. This flowchart also shows creating a DDL file.
-###flowchartTwo
+
+### FlowchartTwo
 This flowchart shows the file save, save as and exit menu options.
-###flowchartThree
+
+### FlowchartThree
 This flowchart shows the options and help menu items and the process a user must go through to act on their specific sub-items.
