@@ -70,7 +70,6 @@ We feel this hybrid approach should allow us to be successful in completing this
 8. Refactor the codebase - M5
 9. Update the README to include refactored changes and why those changes were made - M5
 10. Update the README to explain how our code solves the goals of the project - M5
-```
 
 ## Flowchart
 #### Due to our flowchart being so large, and Lucidchart limiting the number of objects we can use, we had to break this up into three separate files.
@@ -80,4 +79,3 @@ This flowchart shows the actual opening of the edge and previously saved file. U
 This flowchart shows the file save, save as and exit menu options.
 ###flowchartThree
 This flowchart shows the options and help menu items and the process a user must go through to act on their specific sub-items.
-```
