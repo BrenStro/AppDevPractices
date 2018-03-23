@@ -61,15 +61,16 @@ We feel this hybrid approach should allow us to be successful in completing this
 
 #### Product Backlog
 1. Analyze the codebase to ensure understanding all classes and methods - **
-2. Create a JAR file that will run the program - M3
-3. Update the README to add step by step instructions for the novice user to be able to run the JAR file/program - M3
-4. Decide on two different screens of help - M4
-5. Design the GUIs for the different screens of help - M4
-6. Implement the different screens help - M4
-7. Test to ensure the different screens of help work and convey the proper information - M4
-8. Refactor the codebase - M5
-9. Update the README to include refactored changes and why those changes were made - M5
-10. Update the README to explain how our code solves the goals of the project - M5
+2. Write an ANT XML document which will compile the project - M3
+3. The ANT build will compile and create a JAR file that can run the program - M3
+4. Update the README to add step by step instructions for the novice user to be able to run the JAR file/program - M3
+5. Decide on two different screens of help - M4
+6. Design the GUIs for the different screens of help - M4
+7. Implement the different screens help - M4
+8. Test to ensure the different screens of help work and convey the proper information - M4
+9. Refactor the codebase - M5
+10. Update the README to include refactored changes and why those changes were made - M5
+11. Update the README to explain how our code solves the goals of the project - M5
 
 ## Flowchart
 #### Due to our flowchart being so large, and Lucidchart limiting the number of objects we can use, we had to break this up into three separate files. See flowchart directory in this root directory for the flowchart files.
