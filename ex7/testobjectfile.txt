@@ -1,0 +1,6 @@
+EdgeField,1,testName
+EdgeTable,3,coolTest
+EdgeField,7,sampleText
+EdgeTable,2,AnotherOne
+EdgeField,5,cool
+EdgeTable,8,testAgain
