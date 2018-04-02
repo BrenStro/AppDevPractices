@@ -17,6 +17,11 @@ public class EdgeFieldTest {
     //Declare the test object
     EdgeField testObj;
 
+    public EdgeFieldTest(int i, String s) {
+        String inputString =  Integer.toString(i) + "|" + s;
+        testObj = new EdgeField(inputString);
+    }
+
     /**
      * Set up the test object before running each test
      *
@@ -24,7 +29,7 @@ public class EdgeFieldTest {
      */
     @Before
     public void setUp() throws Exception {
-        testObj = new EdgeField("1|testName");
+        //testObj = new EdgeField("1|testName");
         //runner();
     }
 
