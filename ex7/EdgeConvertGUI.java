@@ -1,5 +1,3 @@
-package ex7;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -10,7 +8,7 @@ import java.util.*;
 import java.lang.reflect.*;
 
 public class EdgeConvertGUI {
-   
+
    public static final int HORIZ_SIZE = 635;
    public static final int VERT_SIZE = 400;
    public static final int HORIZ_LOC = 100;
@@ -57,7 +55,7 @@ public class EdgeConvertGUI {
    static JMenuBar jmbDTMenuBar;
    static JMenu jmDTFile, jmDTOptions, jmDTHelp;
    static JMenuItem jmiDTOpenEdge, jmiDTOpenSave, jmiDTSave, jmiDTSaveAs, jmiDTExit, jmiDTOptionsOutputLocation, jmiDTOptionsShowProducts, jmiDTHelpAbout;
-   
+
    //Define Relations screen objects
    static JFrame jfDR;
    static JPanel jpDRBottom, jpDRCenter, jpDRCenter1, jpDRCenter2, jpDRCenter3, jpDRCenter4;
@@ -69,7 +67,7 @@ public class EdgeConvertGUI {
    static JMenuBar jmbDRMenuBar;
    static JMenu jmDRFile, jmDROptions, jmDRHelp;
    static JMenuItem jmiDROpenEdge, jmiDROpenSave, jmiDRSave, jmiDRSaveAs, jmiDRExit, jmiDROptionsOutputLocation, jmiDROptionsShowProducts, jmiDRHelpAbout;
-   
+
    public EdgeConvertGUI() {
       menuListener = new EdgeMenuListener();
       radioListener = new EdgeRadioButtonListener();
@@ -77,7 +75,7 @@ public class EdgeConvertGUI {
       createDDLListener = new CreateDDLButtonListener();
       this.showGUI();
    } // EdgeConvertGUI.EdgeConvertGUI()
-   
+
    public void showGUI() {
       try {
          UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //use the OS native LAF, as opposed to default Java LAF
@@ -127,7 +125,7 @@ public class EdgeConvertGUI {
       jmDTFile.add(jmiDTSave);
       jmDTFile.add(jmiDTSaveAs);
       jmDTFile.add(jmiDTExit);
-      
+
       jmDTOptions = new JMenu("Options");
       jmDTOptions.setMnemonic(KeyEvent.VK_O);
       jmbDTMenuBar.add(jmDTOptions);
@@ -140,7 +138,7 @@ public class EdgeConvertGUI {
       jmiDTOptionsShowProducts.addActionListener(menuListener);
       jmDTOptions.add(jmiDTOptionsOutputLocation);
       jmDTOptions.add(jmiDTOptionsShowProducts);
-      
+
       jmDTHelp = new JMenu("Help");
       jmDTHelp.setMnemonic(KeyEvent.VK_H);
       jmbDTMenuBar.add(jmDTHelp);
@@ -148,7 +146,7 @@ public class EdgeConvertGUI {
       jmiDTHelpAbout.setMnemonic(KeyEvent.VK_A);
       jmiDTHelpAbout.addActionListener(menuListener);
       jmDTHelp.add(jmiDTHelpAbout);
-      
+
       jfcEdge = new JFileChooser();
       jfcOutputDir = new JFileChooser();
 	   effEdge = new ExampleFileFilter("edg", "Edge Diagrammer Files");
@@ -177,7 +175,7 @@ public class EdgeConvertGUI {
       jpDTBottom.add(jbDTDefineRelations);
       jpDTBottom.add(jbDTCreateDDL);
       jfDT.getContentPane().add(jpDTBottom, BorderLayout.SOUTH);
-      
+
       jpDTCenter = new JPanel(new GridLayout(1, 3));
       jpDTCenterRight = new JPanel(new GridLayout(1, 2));
       dlmDTTablesAll = new DefaultListModel();
@@ -202,7 +200,7 @@ public class EdgeConvertGUI {
             }
          }
       );
-      
+
       dlmDTFieldsTablesAll = new DefaultListModel();
       jlDTFieldsTablesAll = new JList(dlmDTFieldsTablesAll);
       jlDTFieldsTablesAll.addListSelectionListener(
@@ -238,7 +236,7 @@ public class EdgeConvertGUI {
             }
          }
       );
-      
+
       jpDTMove = new JPanel(new GridLayout(2, 1));
       jbDTMoveUp = new JButton("^");
       jbDTMoveUp.setEnabled(false);
@@ -308,7 +306,7 @@ public class EdgeConvertGUI {
          jpDTCenterRight1.add(jrbDataType[i]);
       }
       jpDTCenterRight.add(jpDTCenterRight1);
-      
+
       jcheckDTDisallowNull = new JCheckBox("Disallow Null");
       jcheckDTDisallowNull.setEnabled(false);
       jcheckDTDisallowNull.addItemListener(
@@ -319,7 +317,7 @@ public class EdgeConvertGUI {
             }
          }
       );
-      
+
       jcheckDTPrimaryKey = new JCheckBox("Primary Key");
       jcheckDTPrimaryKey.setEnabled(false);
       jcheckDTPrimaryKey.addItemListener(
@@ -330,7 +328,7 @@ public class EdgeConvertGUI {
             }
          }
       );
-      
+
       jbDTDefaultValue = new JButton("Set Default Value");
       jbDTDefaultValue.setEnabled(false);
       jbDTDefaultValue.addActionListener(
@@ -395,7 +393,7 @@ public class EdgeConvertGUI {
                            goodData = true;
                         }
                         catch (Exception e) {
-                           
+
                         }
                         break;
                   }
@@ -459,7 +457,7 @@ public class EdgeConvertGUI {
       );
       jtfDTVarchar = new JTextField();
       jtfDTVarchar.setEditable(false);
-      
+
       jpDTCenterRight2 = new JPanel(new GridLayout(6, 1));
       jpDTCenterRight2.add(jbDTVarchar);
       jpDTCenterRight2.add(jtfDTVarchar);
@@ -725,15 +723,15 @@ public class EdgeConvertGUI {
       jpDRBottom.add(jbDRCreateDDL);
       jfDR.getContentPane().add(jpDRBottom, BorderLayout.SOUTH);
    } //createDRScreen
-   
+
    public static void setReadSuccess(boolean value) {
       readSuccess = value;
    }
-   
+
    public static boolean getReadSuccess() {
       return readSuccess;
    }
-   
+
    private void setCurrentDTTable(String selText) {
       for (int tIndex = 0; tIndex < tables.length; tIndex++) {
          if (selText.equals(tables[tIndex].getName())) {
@@ -789,7 +787,7 @@ public class EdgeConvertGUI {
          }
       }
    }
-   
+
    private String getTableName(int numFigure) {
       for (int tIndex = 0; tIndex < tables.length; tIndex++) {
          if (tables[tIndex].getNumFigure() == numFigure) {
@@ -798,7 +796,7 @@ public class EdgeConvertGUI {
       }
       return "";
    }
-   
+
    private String getFieldName(int numFigure) {
       for (int fIndex = 0; fIndex < fields.length; fIndex++) {
          if (fields[fIndex].getNumFigure() == numFigure) {
@@ -807,7 +805,7 @@ public class EdgeConvertGUI {
       }
       return "";
    }
-   
+
    private void enableControls() {
       for (int i = 0; i < strDataType.length; i++) {
          jrbDataType[i].setEnabled(true);
@@ -817,7 +815,7 @@ public class EdgeConvertGUI {
       jbDTVarchar.setEnabled(true);
       jbDTDefaultValue.setEnabled(true);
    }
-   
+
    private void disableControls() {
       for (int i = 0; i < strDataType.length; i++) {
          jrbDataType[i].setEnabled(false);
@@ -828,19 +826,19 @@ public class EdgeConvertGUI {
       jtfDTVarchar.setText("");
       jtfDTDefaultValue.setText("");
    }
-   
+
    private void clearDTControls() {
       jlDTTablesAll.clearSelection();
       jlDTFieldsTablesAll.clearSelection();
    }
-   
+
    private void clearDRControls() {
       jlDRTablesRelations.clearSelection();
       jlDRTablesRelatedTo.clearSelection();
       jlDRFieldsTablesRelations.clearSelection();
       jlDRFieldsTablesRelatedTo.clearSelection();
    }
-   
+
    private void depopulateLists() {
       dlmDTTablesAll.clear();
       dlmDTFieldsTablesAll.clear();
@@ -849,7 +847,7 @@ public class EdgeConvertGUI {
       dlmDRTablesRelatedTo.clear();
       dlmDRFieldsTablesRelatedTo.clear();
    }
-   
+
    private void populateLists() {
       if (readSuccess) {
          jfDT.setVisible(true);
@@ -867,7 +865,7 @@ public class EdgeConvertGUI {
       }
       readSuccess = true;
    }
-   
+
    private void saveAs() {
       int returnVal;
       jfcEdge.addChoosableFileFilter(effSave);
@@ -894,14 +892,14 @@ public class EdgeConvertGUI {
       }
       writeSave();
    }
-   
+
    private void writeSave() {
       if (saveFile != null) {
          try {
             pw = new PrintWriter(new BufferedWriter(new FileWriter(saveFile, false)));
             //write the identification line
             pw.println(EdgeConvertFileParser.SAVE_ID);
-            //write the tables 
+            //write the tables
             pw.println("#Tables#");
             for (int i = 0; i < tables.length; i++) {
                pw.println(tables[i]);
@@ -927,7 +925,7 @@ public class EdgeConvertGUI {
       alProductNames = new ArrayList();
 
       returnVal = jfcOutputDir.showOpenDialog(null);
-      
+
       if (returnVal == JFileChooser.CANCEL_OPTION) {
          return;
       }
@@ -935,7 +933,7 @@ public class EdgeConvertGUI {
       if (returnVal == JFileChooser.APPROVE_OPTION) {
          outputDir = jfcOutputDir.getSelectedFile();
       }
-      
+
       getOutputClasses();
 
       if (alProductNames.size() == 0) {
@@ -943,7 +941,7 @@ public class EdgeConvertGUI {
          outputDir = outputDirOld;
          return;
       }
-      
+
       if ((parseFile != null || saveFile != null) && outputDir != null) {
          jbDTCreateDDL.setEnabled(true);
          jbDRCreateDDL.setEnabled(true);
@@ -953,7 +951,7 @@ public class EdgeConvertGUI {
       jmiDTOptionsShowProducts.setEnabled(true);
       jmiDROptionsShowProducts.setEnabled(true);
    }
-   
+
    private String displayProductNames() {
       StringBuffer sb = new StringBuffer();
       for (int i = 0; i < productNames.length; i++) {
@@ -961,7 +959,7 @@ public class EdgeConvertGUI {
       }
       return sb.toString();
    }
-   
+
    private void getOutputClasses() {
       File[] resultFiles;
       Class resultClass = null;
@@ -1010,7 +1008,7 @@ public class EdgeConvertGUI {
          objSubclasses = (Object[])alSubclasses.toArray(new Object[alSubclasses.size()]);
       }
    }
-   
+
    private String getSQLStatements() {
       String strSQLString = "";
       String response = (String)JOptionPane.showInputDialog(
@@ -1021,11 +1019,11 @@ public class EdgeConvertGUI {
                     null,
                     productNames,
                     null);
-                    
+
       if (response == null) {
          return EdgeConvertGUI.CANCELLED;
       }
-      
+
       int selected;
       for (selected = 0; selected < productNames.length; selected++) {
          if (response.equals(productNames[selected])) {
@@ -1083,7 +1081,7 @@ public class EdgeConvertGUI {
          }
       }
    }
-   
+
    class EdgeRadioButtonListener implements ActionListener {
       public void actionPerformed(ActionEvent ae) {
          for (int i = 0; i < jrbDataType.length; i++) {
@@ -1104,7 +1102,7 @@ public class EdgeConvertGUI {
          dataSaved = false;
       }
    }
-   
+
    class EdgeWindowListener implements WindowListener {
       public void windowActivated(WindowEvent we) {}
       public void windowClosed(WindowEvent we) {}
@@ -1112,7 +1110,7 @@ public class EdgeConvertGUI {
       public void windowDeiconified(WindowEvent we) {}
       public void windowIconified(WindowEvent we) {}
       public void windowOpened(WindowEvent we) {}
-      
+
       public void windowClosing(WindowEvent we) {
          if (!dataSaved) {
             int answer = JOptionPane.showOptionDialog(null,
@@ -1140,7 +1138,7 @@ public class EdgeConvertGUI {
          System.exit(0); //No was selected
       }
    }
-   
+
    class CreateDDLButtonListener implements ActionListener {
       public void actionPerformed(ActionEvent ae) {
          while (outputDir == null) {
@@ -1188,7 +1186,7 @@ public class EdgeConvertGUI {
 
                jbDTCreateDDL.setEnabled(true);
                jbDRCreateDDL.setEnabled(true);
-               
+
                truncatedFilename = parseFile.getName().substring(parseFile.getName().lastIndexOf(File.separator) + 1);
                jfDT.setTitle(DEFINE_TABLES + " - " + truncatedFilename);
                jfDR.setTitle(DEFINE_RELATIONS + " - " + truncatedFilename);
@@ -1197,7 +1195,7 @@ public class EdgeConvertGUI {
             }
             dataSaved = true;
          }
-         
+
          if ((ae.getSource() == jmiDTOpenSave) || (ae.getSource() == jmiDROpenSave)) {
             if (!dataSaved) {
                int answer = JOptionPane.showConfirmDialog(null, "You currently have unsaved data. Continue?",
@@ -1233,7 +1231,7 @@ public class EdgeConvertGUI {
             }
             dataSaved = true;
          }
-         
+
          if ((ae.getSource() == jmiDTSaveAs) || (ae.getSource() == jmiDRSaveAs) ||
              (ae.getSource() == jmiDTSave) || (ae.getSource() == jmiDRSave)) {
             if ((ae.getSource() == jmiDTSaveAs) || (ae.getSource() == jmiDRSaveAs)) {
@@ -1242,7 +1240,7 @@ public class EdgeConvertGUI {
                writeSave();
             }
          }
-         
+
          if ((ae.getSource() == jmiDTExit) || (ae.getSource() == jmiDRExit)) {
             if (!dataSaved) {
                int answer = JOptionPane.showOptionDialog(null,
@@ -1262,7 +1260,7 @@ public class EdgeConvertGUI {
             }
             System.exit(0); //No was selected
          }
-         
+
          if ((ae.getSource() == jmiDTOptionsOutputLocation) || (ae.getSource() == jmiDROptionsOutputLocation)) {
             setOutputDir();
          }
@@ -1270,7 +1268,7 @@ public class EdgeConvertGUI {
          if ((ae.getSource() == jmiDTOptionsShowProducts) || (ae.getSource() == jmiDROptionsShowProducts)) {
             JOptionPane.showMessageDialog(null, "The available products to create DDL statements are:\n" + displayProductNames());
          }
-         
+
          if ((ae.getSource() == jmiDTHelpAbout) || (ae.getSource() == jmiDRHelpAbout)) {
             JOptionPane.showMessageDialog(null, "EdgeConvert ERD To DDL Conversion Tool\n" +
                                                 "by Stephen A. Capperell\n" +

@@ -1,5 +1,3 @@
-package ex7;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -15,15 +13,15 @@ public abstract class EdgeConvertCreateDDL {
    protected int maxBound;
    protected StringBuffer sb;
    protected int selected;
-   
+
    public EdgeConvertCreateDDL(EdgeTable[] tables, EdgeField[] fields) {
       this.tables = tables;
       this.fields = fields;
       initialize();
    } //EdgeConvertCreateDDL(EdgeTable[], EdgeField[])
-   
+
    public EdgeConvertCreateDDL() { //default constructor with empty arg list for to allow output dir to be set before there are table and field objects
-      
+
    } //EdgeConvertCreateDDL()
 
    public void initialize() {
@@ -45,7 +43,7 @@ public abstract class EdgeConvertCreateDDL {
          }
       }
    }
-   
+
    protected EdgeTable getTable(int numFigure) {
       for (int tIndex = 0; tIndex < tables.length; tIndex++) {
          if (numFigure == tables[tIndex].getNumFigure()) {
@@ -54,7 +52,7 @@ public abstract class EdgeConvertCreateDDL {
       }
       return null;
    }
-   
+
    protected EdgeField getField(int numFigure) {
       for (int fIndex = 0; fIndex < fields.length; fIndex++) {
          if (numFigure == fields[fIndex].getNumFigure()) {
@@ -67,9 +65,9 @@ public abstract class EdgeConvertCreateDDL {
    public abstract String getDatabaseName();
 
    public abstract String getProductName();
-   
+
    public abstract String getSQLString();
-   
+
    public abstract void createDDL();
-   
+
 }//EdgeConvertCreateDDL
