@@ -15,6 +15,11 @@ public class EdgeFieldTest {
     //Declare the test object
     EdgeField testObj;
 
+    public EdgeFieldTest(int i, String s) {
+        String inputString =  Integer.toString(i) + "|" + s;
+        testObj = new EdgeField(inputString);
+    }
+
     /**
      * Set up the test object before running each test
      *
@@ -22,7 +27,7 @@ public class EdgeFieldTest {
      */
     @Before
     public void setUp() throws Exception {
-        testObj = new EdgeField("1|testName");
+        //testObj = new EdgeField("1|testName");
         //runner();
     }
 
@@ -96,7 +101,7 @@ public class EdgeFieldTest {
 
     @Test
     public void testGetVarcharValue() {
-        assertEquals("varcharValue was initialized to VARCHAR_DEFAULT_LENGTH, so it should be VARCHAR_DEFAULT_LENGTH", testObj.VARCHAR_DEFAULT_LENGTH, testObj.getVarcharValue());
+        assertEquals("varcharValue was initialized to VARCHAR_DEFAULT_LENGTH, so it should be VARCHAR_DEFAULT_LENGTH", EdgeField.VARCHAR_DEFAULT_LENGTH, testObj.getVarcharValue());
     }
 
     @Test
@@ -106,7 +111,7 @@ public class EdgeFieldTest {
 
     @Test
     public void testGetStrDataType() {
-        assertEquals("strDataType was initialized to {\"Varchar\", \"Boolean\", \"Integer\", \"Double\"}, so it should be {\"Varchar\", \"Boolean\", \"Integer\", \"Double\"}", new String[] {"Varchar", "Boolean", "Integer", "Double"}, testObj.getStrDataType());
+        assertEquals("strDataType was initialized to {\"Varchar\", \"Boolean\", \"Integer\", \"Double\"}, so it should be {\"Varchar\", \"Boolean\", \"Integer\", \"Double\"}", new String[] {"Varchar", "Boolean", "Integer", "Double"}, EdgeField.getStrDataType());
     }
 
     //TO STRING

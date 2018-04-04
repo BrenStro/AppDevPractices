@@ -16,6 +16,11 @@ public class EdgeTableTest {
     //Declare the test object
     EdgeTable testObj;
 
+    public EdgeTableTest(int i, String s) {
+        String inputString =  Integer.toString(i) + "|" + s;
+        testObj = new EdgeTable(inputString);
+    }
+
     /**
      * Set up the test object before running each test
      *
@@ -23,7 +28,7 @@ public class EdgeTableTest {
      */
     @Before
     public void setUp() throws Exception {
-        testObj = new EdgeTable("2|aTestName");
+        //testObj = new EdgeTable("2|aTestName");
         //runner();
     }
 
