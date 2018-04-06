@@ -82,3 +82,26 @@ This flowchart shows the file save, save as and exit menu options.
 
 ### FlowchartThree
 This flowchart shows the options and help menu items and the process a user must go through to act on their specific sub-items.
+
+## Ex7 - Test Fixture
+To run the automated tests created in Ex7 - Test Fixture, run the below commands:
+```
+javac -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar MainTester.java
+java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar MainTester <OPTIONS>
+```
+### OPTIONS for command:
+
+`-h`: help menu\
+	EX. `MainTester -h`\
+`-n`: what follows is the test object being tested\
+	EX. `MainTester EdgeField -n "1,testName"`\
+`-f`: what follows is the name of a test object file\
+	EX. `MainTester -f testobjectfile.txt`
+
+The following are examples of the full command prompt input:
+
+`java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar  MainTester -h`\
+`java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar  MainTester EdgeField -n "1,testName"`\
+`java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar  MainTester -f testobjectfile.txt`
+
+**NOTE: You must specify the class name to be tested as well, which is before the command option (`-n`)**

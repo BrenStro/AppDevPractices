@@ -19,7 +19,11 @@ public class MainTester {
 	public void setup(String[] args) {
 		// if no args specified, use defaults
 		if (args.length <= 0) {
-
+			String testObj = "EdgeField";
+			String attributeString = "1,testName";
+			System.out.println("Running default test with params: " + testObj + " " + attributeString);
+			runTest(testObj, attributeString);
+			return;
 		}
 		// else, use values specified
 		for (String arg : args) {
