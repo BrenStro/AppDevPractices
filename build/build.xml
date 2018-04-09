@@ -1,5 +1,5 @@
 <project name="RunEdgeConvert" basedir="." default="main">
-    <property name="src.dir" value="src"/>
+    <property name="src.dir" value=".."/>
     <property name="build.dir" value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir" value="${build.dir}/jar"/>
@@ -9,7 +9,12 @@
     </target>
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}">
+			<classpath>
+				<pathelement path="../lib/hamcrest-core-1.3.jar" />
+				<pathelement path="../lib/junit-4.12.jar" />
+			</classpath>
+		</javac>
     </target>
     <target name="jar" depends="compile">
         <mkdir dir="${jar.dir}"/>
