@@ -918,7 +918,7 @@ public class EdgeConvertGUI {
       }
    }
 
-   private void setOutputDir() {
+   private boolean setOutputDir() {
       int returnVal;
       outputDirOld = outputDir;
       alSubclasses = new ArrayList();
@@ -927,7 +927,7 @@ public class EdgeConvertGUI {
       returnVal = jfcOutputDir.showOpenDialog(null);
       
       if (returnVal == JFileChooser.CANCEL_OPTION) {
-         return;
+         return false;
       }
 
       if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -939,7 +939,7 @@ public class EdgeConvertGUI {
       if (alProductNames.size() == 0) {
          JOptionPane.showMessageDialog(null, "The path:\n" + outputDir + "\ncontains no valid output definition files.");
          outputDir = outputDirOld;
-         return;
+         return false;
       }
       
       if ((parseFile != null || saveFile != null) && outputDir != null) {
@@ -950,6 +950,8 @@ public class EdgeConvertGUI {
       JOptionPane.showMessageDialog(null, "The available products to create DDL statements are:\n" + displayProductNames());
       jmiDTOptionsShowProducts.setEnabled(true);
       jmiDROptionsShowProducts.setEnabled(true);
+
+      return true;
    }
    
    private String displayProductNames() {
@@ -1141,10 +1143,12 @@ public class EdgeConvertGUI {
    
    class CreateDDLButtonListener implements ActionListener {
       public void actionPerformed(ActionEvent ae) {
-         while (outputDir == null) {
+
+         if(!setOutputDir()) {
             JOptionPane.showMessageDialog(null, "You have not selected a path that contains valid output definition files yet.\nPlease select a path now.");
-            setOutputDir();
+            return;
          }
+
          getOutputClasses(); //in case outputDir was set before a file was loaded and EdgeTable/EdgeField objects created
          sqlString = getSQLStatements();
          if (sqlString.equals(EdgeConvertGUI.CANCELLED)) {
