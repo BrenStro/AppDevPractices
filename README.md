@@ -105,3 +105,8 @@ The following are examples of the full command prompt input:
 `java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar  MainTester -f testobjectfile.txt`
 
 **NOTE: You must specify the class name to be tested as well, which is before the command option (`-n`)**
+
+## Deployment Strategy
+
+For this milestone we decided made an Ant build file (build.xml) because our project is based in java. This will create a jar file for the user to run. These commands to compile and run this file are as follows:
+1)
