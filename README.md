@@ -108,5 +108,16 @@ The following are examples of the full command prompt input:
 
 ## Deployment Strategy
 
-For this milestone we decided made an Ant build file (build.xml) because Ant is Java-specific. This will create a jar file for the user to run. The following steps will outline in detail how to download, unzip, compile and run the file:
-1)
+For this milestone, we decided to make an Ant build file (build.xml). This decision was made because not only is Ant Java-specific, but it also allows the user to compile, build, and create a JAR file all in one step. This simplified process makes for a more straight-forward process to get the user up-and-running.
+
+**How to Build:**
+The following steps will outline in detail how to compile the project:
+1. Download and unzip the source code.
+2. In a new terminal shell instance, navigate to the build directory inside the source directory you just unzipped (with `cd build`).
+3. Run the command `ant clean-build`. Note: This command can be run at anytime to build a fresh copy of the project.
+
+**How to Run:**
+Once the above steps are followed to build the project, you can follow the below to run the application:
+1. Navigate down into the newly created jar directory within the build directory. From the source directory, run `cd build/jar`.
+2. Run the JAR file using the command `java -jar RunEdgeConvert.jar`.
+3. The application should then launch successfully.
