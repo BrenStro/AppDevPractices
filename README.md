@@ -108,5 +108,5 @@ The following are examples of the full command prompt input:
 
 ## Deployment Strategy
 
-For this milestone we decided made an Ant build file (build.xml) because our project is based in java. This will create a jar file for the user to run. These commands to compile and run this file are as follows:
+For this milestone we decided made an Ant build file (build.xml) because Ant is Java-specific. This will create a jar file for the user to run. These commands to compile and run this file are as follows:
 1)
