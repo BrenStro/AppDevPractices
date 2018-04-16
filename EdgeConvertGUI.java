@@ -54,7 +54,7 @@ public class EdgeConvertGUI {
    static DefaultListModel dlmDTTablesAll, dlmDTFieldsTablesAll;
    static JMenuBar jmbDTMenuBar;
    static JMenu jmDTFile, jmDTOptions, jmDTHelp;
-   static JMenuItem jmiDTOpenEdge, jmiDTOpenSave, jmiDTSave, jmiDTSaveAs, jmiDTExit, jmiDTOptionsOutputLocation, jmiDTOptionsShowProducts, jmiDTHelpAbout;
+   static JMenuItem jmiDTOpenEdge, jmiDTOpenSave, jmiDTSave, jmiDTSaveAs, jmiDTExit, jmiDTOptionsOutputLocation, jmiDTOptionsShowProducts, jmiDTHelpAbout, jmiDTHelpFAQ, jmiDTHelpHowTo;
    
    //Define Relations screen objects
    static JFrame jfDR;
@@ -146,6 +146,14 @@ public class EdgeConvertGUI {
       jmiDTHelpAbout.setMnemonic(KeyEvent.VK_A);
       jmiDTHelpAbout.addActionListener(menuListener);
       jmDTHelp.add(jmiDTHelpAbout);
+      jmiDTHelpFAQ = new JMenuItem("FAQ");
+      jmiDTHelpFAQ.setMnemonic(KeyEvent.VK_F);
+      jmiDTHelpFAQ.addActionListener(menuListener);
+      jmDTHelp.add(jmiDTHelpFAQ);
+      jmiDTHelpHowTo = new JMenuItem("How To");
+      jmiDTHelpHowTo.setMnemonic(KeyEvent.VK_T);
+      jmiDTHelpHowTo.addActionListener(menuListener);
+      jmDTHelp.add(jmiDTHelpHowTo);
       
       jfcEdge = new JFileChooser();
       jfcOutputDir = new JFileChooser();
@@ -1277,6 +1285,14 @@ public class EdgeConvertGUI {
             JOptionPane.showMessageDialog(null, "EdgeConvert ERD To DDL Conversion Tool\n" +
                                                 "by Stephen A. Capperell\n" +
                                                 "� 2007-2008");
+         }
+
+         if ((ae.getSource() == jmiDTHelpFAQ) || (ae.getSource() == jmiDTHelpFAQ)) {
+            JOptionPane.showMessageDialog(null, "FAQ");
+         }
+
+         if ((ae.getSource() == jmiDTHelpHowTo) || (ae.getSource() == jmiDTHelpHowTo)) {
+            JOptionPane.showMessageDialog(null, "How To");
          }
       } // EdgeMenuListener.actionPerformed()
    } // EdgeMenuListener
