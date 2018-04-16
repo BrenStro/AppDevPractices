@@ -1288,7 +1288,12 @@ public class EdgeConvertGUI {
          }
 
          if ((ae.getSource() == jmiDTHelpFAQ) || (ae.getSource() == jmiDTHelpFAQ)) {
-            JOptionPane.showMessageDialog(null, "FAQ");
+            String FAQ = "Q: Is there a way for me to add/delete columns and tables within my database?\n\t\t\t\tA: No, at this time" +
+                    "we have not added this functionality, but this is something that will be available in the next release of the software.\n\n" +
+                    "Q: What kind of files can I edit?\n\t\t\t\tA: Currently, you can edit either .edg or .sav files. However, through " +
+                    "our software you can export DDL files as well.";
+
+            JOptionPane.showMessageDialog(null, "FAQ:\n\n" + FAQ);
          }
 
          if ((ae.getSource() == jmiDTHelpHowTo) || (ae.getSource() == jmiDTHelpHowTo)) {
