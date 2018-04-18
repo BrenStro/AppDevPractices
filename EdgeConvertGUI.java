@@ -1288,10 +1288,15 @@ public class EdgeConvertGUI {
          }
 
          if ((ae.getSource() == jmiDTHelpFAQ) || (ae.getSource() == jmiDTHelpFAQ)) {
-            String FAQ = "Q: Is there a way for me to add/delete columns and tables within my database?\n\t\t\t\tA: No, at this time" +
-                    "we have not added this functionality, but this is something that will be available in the next release of the software.\n\n" +
+            String FAQ = "Q: Is there a way for me to add/delete columns and tables within my database?\n\t\t\t\tA: No, at this time " +
+                    "we have not added this functionality, but this is something that will be available in the next release\n\t\t\t\tof the software.\n\n" +
                     "Q: What kind of files can I edit?\n\t\t\t\tA: Currently, you can edit either .edg or .sav files. However, through " +
-                    "our software you can export DDL files as well.";
+                    "our software you can export DDL files as well.\n\nQ: What is possible in terms of editing the database?\n\t\t\t\t" +
+                    "A: In terms of editing the database, you can bind/unbind certain relations and edit columns within your database\n\t\t\t\tsuch as " +
+                    "the column's datatype and constraints.\n\nQ: Can I use this application with any database product?\n\t\t\t\tA: You can use " +
+                    "this application with any relational database management system.\n\nQ: Could I integrate this application into " +
+                    "an already existing application?\n\t\t\t\tA: In the current state, the application cannot be integrated unless the code " +
+                    "is modified.";
 
             JOptionPane.showMessageDialog(null, "FAQ:\n\n" + FAQ);
          }
