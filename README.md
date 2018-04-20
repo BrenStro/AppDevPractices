@@ -123,5 +123,5 @@ Once the above steps are followed to build the project, you can follow the below
 3. The application should then launch successfully.
 
 ## Help System
-** Please see the Deployment Strategy for steps on how to compile and run the program **
+Please see the Deployment Strategy for steps on how to compile and run the program.
 Once the program is running, go to the help menu on the toolbar to view the help options.
