@@ -88,7 +88,7 @@ To run the automated tests created in Ex7 - Test Fixture, run the below commands
 ```
 javac -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar MainTester.java
 java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar MainTester <OPTIONS>
-```
+````
 ### OPTIONS for command:
 
 `-h`: help menu\
@@ -121,3 +121,7 @@ Once the above steps are followed to build the project, you can follow the below
 1. Navigate down into the newly created jar directory within the build directory. From the source directory, run `cd build/jar`.
 2. Run the JAR file using the command `java -jar RunEdgeConvert.jar`.
 3. The application should then launch successfully.
+
+## Help System
+** Please see the Deployment Strategy for steps on how to compile and run the program **
+Once the program is running, go to the help menu on the toolbar to view the help options.
