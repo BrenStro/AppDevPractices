@@ -1284,25 +1284,25 @@ public class EdgeConvertGUI {
          if ((ae.getSource() == jmiDTHelpAbout) || (ae.getSource() == jmiDRHelpAbout)) {
             JOptionPane.showMessageDialog(null, "EdgeConvert ERD To DDL Conversion Tool\n" +
                                                 "by Stephen A. Capperell\n" +
-                                                "� 2007-2008");
+                                                "\u00a9 2007-2008");
          }
 
          if ((ae.getSource() == jmiDTHelpFAQ) || (ae.getSource() == jmiDTHelpFAQ)) {
             String FAQ = "Q: Is there a way for me to add/delete columns and tables within my database?\n\t\t\t\tA: No, at this time " +
                     "we have not added this functionality, but this is something that will be available in the next release\n\t\t\t\tof the software.\n\n" +
-                    "Q: What kind of files can I edit?\n\t\t\t\tA: Currently, you can edit either .edg or .sav files. However, through " +
+                    "Q: What kind of files can I edit?\n\t\t\t\tA: Currently, you can only edit .sav files. However, through " +
                     "our software you can export DDL files as well.\n\nQ: What is possible in terms of editing the database?\n\t\t\t\t" +
                     "A: In terms of editing the database, you can bind/unbind certain relations and edit columns within your database\n\t\t\t\tsuch as " +
-                    "the column's datatype and constraints.\n\nQ: Can I use this application with any database product?\n\t\t\t\tA: You can use " +
-                    "this application with any relational database management system.\n\nQ: Could I integrate this application into " +
+                    "the column's datatype and constraints.\n\nQ: Can I use this application with any database product?\n\t\t\t\tA: You can currently use " +
+                    "this application with any MySQL relational database.\n\nQ: Could I integrate this application into " +
                     "an already existing application?\n\t\t\t\tA: In the current state, the application cannot be integrated unless the code " +
-                    "is modified.";
+                    "is modified. At this time we are not\n\t\t\t\t distributing the source code. However, in the future, this may be an option.";
 
             JOptionPane.showMessageDialog(null, "FAQ:\n\n" + FAQ);
          }
 
          if ((ae.getSource() == jmiDTHelpHowTo) || (ae.getSource() == jmiDTHelpHowTo)) {
-		 	String howTo = "With this application, one can open an *.edg or *.sav file, review its database schema, and export (with any changes) to standard SQL Data Modeling Language. " +
+		 	String howTo = "With this application, one can open an *.edg or *.sav file, review its database schema, and export (with any changes) to standard SQL Data Definition Language. " +
 					"The following is a step-by-step of those basics:\n\n" +
 					"1. Open the File menu from the menu bar.\n\n" +
 					"2. Select Open Edge File or Open Save File (depending on the type of file you desire to review)\n\n." +
@@ -1313,7 +1313,7 @@ public class EdgeConvertGUI {
 					"7. Navigate to the folder on your computer where you have a collection of Java classes designed to convert Edge files to DML. " +
 					 	"Included with this app is the CreateDDLMySQL class which outputs a DML script compatable with MySQL.\n\n" +
 					"8. Select the folder from the list and click Open.\n\n" +
-					"9. Review the list of available Database Products from the list. Click OK.\n\n" +
+					"9. Review the list of available Database Products from the list. \n\n" +
 					"10. Select your desired Database Product from the drop-down list. Click OK.\n\n" +
 					"11. Enter a name for your Database to be defined. Click OK.\n\n" +
 					"12. Navigate to a place on your computer where you'd like to save the exported SQL script. Change its name if you'd like.\n\n" +
