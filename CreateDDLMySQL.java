@@ -100,12 +100,21 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
       }
    }
 
+   //TODO: - REFACTORED CODE
+
+   /**
+    * Method that will convert the boolean provided
+    * to its respective int value.
+    *
+    * @param input
+    * @return
+    */
    protected int convertStrBooleanToInt(String input) { //MySQL uses '1' and '0' for boolean types
       if (input.equals("true")) {
          return 1;
-      } else {
-         return 0;
       }
+
+      return 0;
    }
    
    public String generateDatabaseName() { //prompts user for database name
