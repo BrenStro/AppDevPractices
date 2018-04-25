@@ -71,18 +71,8 @@ public class EdgeTable {
    }
 
    public void makeArrays() { //convert the ArrayLists into int[]
-      Integer[] temp;
-      temp = (Integer[])alNativeFields.toArray(new Integer[alNativeFields.size()]);
-      nativeFields = new int[temp.length];
-      for (int i = 0; i < temp.length; i++) {
-         nativeFields[i] = temp[i].intValue();
-      }
-      
-      temp = (Integer[])alRelatedTables.toArray(new Integer[alRelatedTables.size()]);
-      relatedTables = new int[temp.length];
-      for (int i = 0; i < temp.length; i++) {
-         relatedTables[i] = temp[i].intValue();
-      }
+      assignArrays(nativeFields, alRelatedTables);
+      assignArrays(relatedTables, alRelatedTables);
       
       relatedFields = new int[nativeFields.length];
       for (int i = 0; i < relatedFields.length; i++) {
@@ -90,32 +80,58 @@ public class EdgeTable {
       }
    }
 
+   //TODO: - REFACTORED CODE
+   /**
+    * Method that will take in two arrays and loop
+    * through them in order to get the columns/fields
+    * from each table.
+    *
+    * @param array
+    * @param lists
+    */
+   public void assignArrays(int[] array, ArrayList lists) {
+      Integer[] temp = {};
+
+      array = new int[temp.length];
+      temp = (Integer[])lists.toArray(new Integer[lists.size()]);
+
+      for (int i = 0; i < temp.length; i++) {
+         array[i] = temp[i].intValue();
+      }
+   }
+
+   public void appendString(StringBuffer buffer, int[] array) {
+      for (int i = 0; i < array.length; i++) {
+         buffer.append(array[i]);
+         if (i < (array.length - 1)){
+            buffer.append(EdgeConvertFileParser.DELIM);
+         }
+      }
+   }
+
+   //TODO: - REFACTORED CODE
+   /**
+    * Method that will take in a string buffer
+    * and the array to be parsed. It will loop
+    * through the array and parse it to get the field values
+    * and append it to a string to print out.
+    *
+    * @param array
+    * @param lists
+    */
    public String toString() {
       StringBuffer sb = new StringBuffer();
       sb.append("Table: " + numFigure + "\r\n");
       sb.append("{\r\n");
       sb.append("TableName: " + name + "\r\n");
       sb.append("NativeFields: ");
-      for (int i = 0; i < nativeFields.length; i++) {
-         sb.append(nativeFields[i]);
-         if (i < (nativeFields.length - 1)){
-            sb.append(EdgeConvertFileParser.DELIM);
-         }
-      }
+      appendString(sb, nativeFields);
+
       sb.append("\r\nRelatedTables: ");
-      for (int i = 0; i < relatedTables.length; i++) {
-         sb.append(relatedTables[i]);
-         if (i < (relatedTables.length - 1)){
-            sb.append(EdgeConvertFileParser.DELIM);
-         }
-      }
+      appendString(sb, relatedTables);
+
       sb.append("\r\nRelatedFields: ");
-      for (int i = 0; i < relatedFields.length; i++) {
-         sb.append(relatedFields[i]);
-         if (i < (relatedFields.length - 1)){
-            sb.append(EdgeConvertFileParser.DELIM);
-         }
-      }
+      appendString(sb, relatedFields);
       sb.append("\r\n}\r\n");
       
       return sb.toString();
