@@ -50,23 +50,29 @@ public class EdgeTable {
       if (index == 0) {
          return;
       }
-      int tempNative = nativeFields[index - 1]; //save element at destination index
-      nativeFields[index - 1] = nativeFields[index]; //copy target element to destination
-      nativeFields[index] = tempNative; //copy saved element to target's original location
-      int tempRelated = relatedFields[index - 1]; //save element at destination index
-      relatedFields[index - 1] = relatedFields[index]; //copy target element to destination
-      relatedFields[index] = tempRelated; //copy saved element to target's original location
+      moveField(index,-1);
    }
-   
+
    public void moveFieldDown(int index) { //move the field closer to the end of the list
       if (index == (nativeFields.length - 1)) {
          return;
       }
-      int tempNative = nativeFields[index + 1]; //save element at destination index
-      nativeFields[index + 1] = nativeFields[index]; //copy target element to destination
+      moveField(index,1);
+   }
+
+   //TODO: - REFACTORED CODE
+   /**
+    * This method takes in an index and direction to determine whether
+    * to move a field up or down.
+    * @param index
+    * @param direction
+    */
+   public void moveField(int index, int direction) {
+      int tempNative = nativeFields[index + direction]; //save element at destination index
+      nativeFields[index + direction] = nativeFields[index]; //copy target element to destination
       nativeFields[index] = tempNative; //copy saved element to target's original location
-      int tempRelated = relatedFields[index + 1]; //save element at destination index
-      relatedFields[index + 1] = relatedFields[index]; //copy target element to destination
+      int tempRelated = relatedFields[index + direction]; //save element at destination index
+      relatedFields[index + direction] = relatedFields[index]; //copy target element to destination
       relatedFields[index] = tempRelated; //copy saved element to target's original location
    }
 
