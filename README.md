@@ -125,3 +125,23 @@ Once the above steps are followed to build the project, you can follow the below
 ## Help System
 Please see the Deployment Strategy for steps on how to compile and run the program.
 Once the program is running, go to the help menu on the toolbar to view the help options.
+
+## Refactored Abstracted Code
+During our refactoring, the classes that we had changed were EdgeTable.java and CreateDDLMySQL.java. As we were analyzing the code, we noticed
+that there was a lot of duplication within the codebase. Therefore, we spent majority of our refactoring extracting duplicated and unneeded code
+and putting them into methods. By doing this, it allows the code to be more readable, maintainable, and extensible.
+
+**EdgeTable.java**
+In this class, we created two methods (moveFields() and assignArrays()). These methods allow us to remove duplicated code
+and extract it in to one common method. This allows us to easily call these methods by passing in the needed parameters. By doing this,
+the code becomes easier to read, understand, and access.
+
+**CreateDDLMySQL.java**
+In this class, we manipulated one method (convertStrBooleanToInt()). Here, we cleaned up the code to remove unneeded
+lines. This allows us to make the method more readable and clean.
+
+**What you would have to do to use a different DBMS or modeling programs file?**
+There is not too much that has to be done in regard to manipulating the program to use a different DBMS or modeling programs file. The main thing that would need to be changed is the
+transition and use of interfaces. This would allow the code to be more abstract and, therefore, provide the ability to conform how the program is run given a specific file. By using interfaces,
+specific classes can be called upon and instantiated during runtime to change the behavior of the program in terms of the DMBS or files that are used. The EdgeConvertCreateDDL abstract class already exists as a good candidate from which to build an interface for creating DDL for other database products.
+Adding an interface to handle reading in different modeling files would require generalizing the code currently used to read-in Edge files—removing specific references to the format of Edge Files—and, similar to the way the process currently works for selecting an output DDL, allow the user to add classes for reading in specific types of modeling files (e.g. Edge and Save files). The rest of the application would then reference these abstracted methods instead of the Edge File methods which currently exist.
