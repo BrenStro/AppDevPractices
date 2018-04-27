@@ -131,16 +131,16 @@ During our refactoring, the classes that we had changed were EdgeTable.java and 
 that there was a lot of duplication within the codebase. Therefore, we spent majority of our refactoring extracting duplicated and unneeded code
 and putting them into methods. By doing this, it allows the code to be more readable, maintainable, and extensible.
 
-**EdgeTable.java**
+**EdgeTable.java** \
 In this class, we created two methods (moveFields() and assignArrays()). These methods allow us to remove duplicated code
 and extract it in to one common method. This allows us to easily call these methods by passing in the needed parameters. By doing this,
 the code becomes easier to read, understand, and access.
 
-**CreateDDLMySQL.java**
+**CreateDDLMySQL.java** \
 In this class, we manipulated one method (convertStrBooleanToInt()). Here, we cleaned up the code to remove unneeded
 lines. This allows us to make the method more readable and clean.
 
-**What you would have to do to use a different DBMS or modeling programs file?**
+**What you would have to do to use a different DBMS or modeling programs file?** \
 There is not too much that has to be done in regard to manipulating the program to use a different DBMS or modeling programs file. The main thing that would need to be changed is the
 transition and use of interfaces. This would allow the code to be more abstract and, therefore, provide the ability to conform how the program is run given a specific file. By using interfaces,
 specific classes can be called upon and instantiated during runtime to change the behavior of the program in terms of the DMBS or files that are used. The EdgeConvertCreateDDL abstract class already exists as a good candidate from which to build an interface for creating DDL for other database products.
