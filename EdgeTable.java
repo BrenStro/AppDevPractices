@@ -77,13 +77,16 @@ public class EdgeTable {
    }
 
    public void makeArrays() { //convert the ArrayLists into int[]
-      assignArrays(nativeFields, alRelatedTables);
-      assignArrays(relatedTables, alRelatedTables);
-      
+      assignArrays(alNativeFields, "nativeFields");
+      assignArrays(alRelatedTables, "relatedTables");
+
       relatedFields = new int[nativeFields.length];
+
       for (int i = 0; i < relatedFields.length; i++) {
          relatedFields[i] = 0;
+
       }
+
    }
 
    //TODO: - REFACTORED CODE
@@ -92,18 +95,24 @@ public class EdgeTable {
     * through them in order to get the columns/fields
     * from each table.
     *
-    * @param array
     * @param lists
     */
-   public void assignArrays(int[] array, ArrayList lists) {
-      Integer[] temp = {};
+   public void assignArrays(ArrayList lists, String fieldName) {
+      Integer[] temp;
 
-      array = new int[temp.length];
       temp = (Integer[])lists.toArray(new Integer[lists.size()]);
+      int[] array = new int[temp.length];
 
       for (int i = 0; i < temp.length; i++) {
          array[i] = temp[i].intValue();
       }
+
+      if(fieldName.equals("nativeFields")) {
+         nativeFields = array;
+      } else {
+         relatedTables = array;
+      }
+
    }
 
    public void appendString(StringBuffer buffer, int[] array) {
@@ -122,8 +131,6 @@ public class EdgeTable {
     * through the array and parse it to get the field values
     * and append it to a string to print out.
     *
-    * @param array
-    * @param lists
     */
    public String toString() {
       StringBuffer sb = new StringBuffer();
